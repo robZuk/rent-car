@@ -18,13 +18,7 @@ function PaymentScreen() {
   console.log(paymentMethod);
 
   return (
-    <div
-      className="container"
-      // style={{
-      //   height: "40vh",
-      //   marginTop: "20vh",
-      // }}
-    >
+    <div className="container">
       <CheckoutSteps step1 step2 />
       <div
         style={{
@@ -48,7 +42,6 @@ function PaymentScreen() {
                 type="radio"
                 name="flexRadioDisabled"
                 id="paypal"
-                // checked
                 value="PayPal"
                 onChange={(e) => {
                   setPaymentMethod(e.target.value);

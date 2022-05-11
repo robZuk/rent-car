@@ -8,9 +8,7 @@ const StyledContainer = styled.section`
   right: ${({ toggleMenu }) => `${toggleMenu ? `250px` : `0`}`};
   width: 100%;
   min-height: 100vh;
-  //padding: 100px;
   display: flex;
-  //justify-content: space-between;
   align-items: center;
   background: #111;
   transition: 0.5s;
@@ -27,9 +25,6 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // @media (max-width: 991px) {
-  //   padding: 40px;
-  // }
 `;
 
 const StyledLogo = styled.h2`
@@ -51,11 +46,6 @@ const StyledToggle = styled.div`
   right: 5%;
   width: 60px;
   height: 60px;
-  // @media (max-width: 991px) {
-  //   width: 50px;
-  //   height: 50px;
-  // }
-
   background: ${({ toggleMenu }) =>
     `${
       toggleMenu
@@ -64,8 +54,6 @@ const StyledToggle = styled.div`
     }`};
   background-repeat: no-repeat;
   background-size: ${({ toggleMenu }) => `${toggleMenu ? `25px` : `30px`}`};
-  //background-size: 30px;
-
   background-position: center;
   cursor: pointer;
 `;

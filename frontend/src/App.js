@@ -1,5 +1,4 @@
-//import "./App.css";
-import React, { useEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -21,8 +20,6 @@ import OrderListScreen from "./screens/OrderListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import CarEditScreen from "./screens/CarEditScreen";
 import { PrivateRoute, AdminPrivateRoute } from "./components/PrivateRoute";
-
-//ffsdfsfd
 
 function App() {
   return (

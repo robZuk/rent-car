@@ -84,7 +84,7 @@ function UserListScreen() {
             </button>
             <button
               type="button"
-              className="btn btn-secondary btn-sm mx-2"
+              className="btn btn-light btn-sm mx-2"
               onClick={() => setToast((toast) => !toast)}
             >
               Close

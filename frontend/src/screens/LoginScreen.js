@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import Loader from "../components/Loader";
 import { login } from "../actions/userActions";
 import { USER_ERROR_RESET } from "../constants/userConstants";
-// import { login, reset } from "../redux/auth/authSlice";
 
-//dggd
 function LoginScreen() {
   const [formData, setFormData] = useState({
     email: "",
@@ -19,17 +17,12 @@ function LoginScreen() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const {
     register,
     handleSubmit,
-    formState: { errors: useFormErrors, isSubmitted },
+    formState: { errors: useFormErrors },
   } = useForm();
-
-  // const { user, isLoading, isError, isSuccess, message } = useSelector(
-  //   (state) => state.auth
-  // );
 
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
@@ -39,12 +32,6 @@ function LoginScreen() {
 
     error && toast.error(error);
     error && dispatch({ type: USER_ERROR_RESET });
-
-    // dispatch(reset());
-    // useFormErrors.email?.type === "required" &&
-    //   toast.error("Please enter an email");
-    // useFormErrors.password?.type === "required" &&
-    //   toast.error("Please enter a password");
   }, [error, navigate, dispatch, userInfo]);
 
   const onChange = (e) => {
@@ -54,9 +41,7 @@ function LoginScreen() {
     }));
   };
 
-  const submitHandler = (e) => {
-    //e.preventDefault();
-
+  const submitHandler = () => {
     dispatch(login(email, password));
   };
 

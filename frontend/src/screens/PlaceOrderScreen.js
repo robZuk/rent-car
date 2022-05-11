@@ -4,9 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { createOrder } from "../actions/orderActions";
-import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 import { USER_DETAILS_RESET } from "../constants/userConstants";
-// import { CAR_DETAILS_RESET } from "../constants/carConstants";
 
 function PlaceOrderScreen() {
   const dispatch = useDispatch();
@@ -37,7 +35,6 @@ function PlaceOrderScreen() {
     if (success && order) {
       navigate(`/order/${order._id}`);
       dispatch({ type: USER_DETAILS_RESET });
-      // dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [success, dispatch, navigate, order, cart.paymentOnAccountMethod]);
 
@@ -53,13 +50,7 @@ function PlaceOrderScreen() {
   };
 
   return (
-    <div
-      className="container"
-      // style={{
-      //   height: "40vh",
-      //   marginTop: "20vh",
-      // }}
-    >
+    <div className="container">
       <CheckoutSteps step1 step2 step3 />
       <div className="container">
         <div className="row d-flex justify-content-center">

@@ -16,8 +16,9 @@ function OrderListScreen() {
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    userInfo && userInfo.isAdmin ? dispatch(listOrders()) : navigate("/login");
+    dispatch(listOrders());
   }, [dispatch, navigate, userInfo]);
+
   return (
     <div className="container-lg">
       {loading ? (

@@ -1,19 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-// import { logout, reset } from "../redux/auth/authSlice";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function HeaderContainer() {
-  const dispatch = useDispatch();
-
   const [keyword, setKeyword] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  // const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();

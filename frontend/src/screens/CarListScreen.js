@@ -55,8 +55,6 @@ function CarListScreen() {
 
     dispatch({ type: CAR_CREATE_RESET });
 
-    // (!userInfo || !userInfo.isAdmin) && navigate("/login");
-
     successCreate
       ? navigate(`/admin/car/${createdCar._id}/edit`)
       : dispatch(listCars(""));

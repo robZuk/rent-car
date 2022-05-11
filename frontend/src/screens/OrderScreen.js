@@ -9,43 +9,27 @@ import { getOrderDetails, payOrder } from "../actions/orderActions";
 import { carReservation } from "../actions/carActions";
 import { listCarDetails } from "../actions/carActions";
 import { ORDER_PAY_RESET } from "../constants/orderConstants";
-import { CAR_DETAILS_RESET } from "../constants/carConstants";
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 
 function OrderScreen() {
   const params = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const orderId = params.id;
 
   const [sdkReady, setSdkReady] = useState(false);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  // const orderCreate = useSelector((state) => state.orderCreate);
-  // const { order: createOrder } = orderCreate;
-  // console.log(orderCreate);
-
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
 
-  // console.log(order.paymentOnAccountMethod);
   const orderCreate = useSelector((state) => state.orderCreate);
-  const {
-    order: createOrder,
-    success: orderSuccess,
-    error: errorOrder,
-  } = orderCreate;
+  const { order: createOrder } = orderCreate;
 
   const paidDate = new Date(order?.paidAt);
 
-  const carReservationState = useSelector((state) => state.carReservation);
-  const { success } = carReservationState;
-
   const orderPay = useSelector((state) => state.orderPay);
   const { loading: loadingPay, success: successPay } = orderPay;
-
-  // const userLogin = useSelector((state) => state.userLogin);
-  // const { userInfo } = userLogin;
 
   if (!loading) {
     //   Calculate prices
@@ -71,16 +55,6 @@ function OrderScreen() {
       document.body.appendChild(script);
     };
 
-    // if (successPay) {
-    //   order.orderItems.forEach((item) =>
-    //     dispatch(
-    //       carReservation(item.car, {
-    //         dates: [...item.reservedDays],
-    //       })
-    //     )
-    //   );
-    // }
-    //order?.orderItems.forEach((item) => {
     createOrder?.orderItems.forEach((item) => {
       dispatch(
         carReservation(item.car, {
@@ -90,9 +64,6 @@ function OrderScreen() {
       dispatch(listCarDetails(item.car));
       dispatch({ type: ORDER_CREATE_RESET });
     });
-
-    // console.log(success);
-    // order?.orderItems.forEach((item) => console.log(item.car, success));
 
     if (!order || successPay || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET });
@@ -192,10 +163,6 @@ function OrderScreen() {
               </ul>
             </>
           )}
-          {/* </div> */}
-          {/* </div> */}
-          {/* <div className="container">
-          <div className="row d-flex justify-content-center"> */}
           <div className="col-sm-5">
             <ul
               className="list-group-flush"
@@ -236,7 +203,6 @@ function OrderScreen() {
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

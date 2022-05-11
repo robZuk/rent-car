@@ -6,12 +6,7 @@ import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import { Calendar, utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import { addToCart } from "../actions/cartActions";
 
-function ModalCalendar({
-  id,
-  staticContext,
-  setReservedDatesByAdmin,
-  // ...props
-}) {
+function ModalCalendar({ id, staticContext, setReservedDatesByAdmin }) {
   const dispatch = useDispatch();
 
   const carDetails = useSelector((state) => state.carDetails);
@@ -27,10 +22,6 @@ function ModalCalendar({
 
   //transform year, month and day to one string and push to new array
   const reservedDates = [];
-  // console.log(reservedDates);
-  // console.log(selectedDays);
-  // console.log(setreserveddates);
-  // console.log(staticContext);
 
   selectedDays.map((item) =>
     reservedDates.push(
@@ -45,17 +36,6 @@ function ModalCalendar({
   const handleDisabledSelect = () => {
     toast.error(`Tried selecting a disabled day`);
   };
-  // useEffect(() => {
-  //   car.reservedDays &&
-  //     location.pathname !== `/admin/car/${id}/edit` &&
-  //     car.reservedDays.forEach((item) => {
-  //       disabledDays.push({
-  //         year: new Date(item).getUTCFullYear(),
-  //         month: new Date(item).getUTCMonth() + 1,
-  //         day: new Date(item).getUTCDate(),
-  //       });
-  //     });
-  // }, [car.reservedDays, disabledDays, id, location]);
 
   car.reservedDays &&
     location.pathname !== `/admin/car/${id}/edit` &&
@@ -104,7 +84,6 @@ function ModalCalendar({
           </div>
           <div className="modal-body d-flex justify-content-center">
             <Calendar
-              // {...props}
               value={selectedDays}
               onChange={setSelectedDays}
               disabledDays={disabledDays}

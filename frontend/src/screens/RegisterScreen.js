@@ -7,12 +7,6 @@ import Loader from "../components/Loader";
 import { register } from "../actions/userActions";
 
 function RegisterScreen() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-  //   const [message, setMessage] = useState(null);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,37 +35,12 @@ function RegisterScreen() {
   const userRegister = useSelector((state) => state.userRegister);
   let { loading, error, userInfo } = userRegister;
 
-  // const { user, loading, isError, isSuccess, message } = useSelector(
-  //   (state) => state.auth
-  // );
-
   useEffect(() => {
-    // Redirect when logged in
-
     userInfo && navigate("/cars");
-
     error && toast.error(error);
-    // useFormErrors.name?.type === "required" &&
-    //   toast.error("Please enter a name");
-    // useFormErrors.email?.type === "required" &&
-    //   toast.error("Please enter an email");
-    // useFormErrors.password?.type === "required" &&
-    //   toast.error("Please enter a password");
-    // useFormErrors.confirmPassword?.type === "required" &&
-    //   toast.error("Please confirm password");
-    //message && toast.error("User already exists");
-  }, [
-    userInfo,
-    navigate,
-    error,
-    // useFormErrors.email,
-    // useFormErrors.password,
-    // useFormErrors.name,
-    // useFormErrors.confirmPassword,
-  ]);
+  }, [userInfo, navigate, error]);
 
-  const submitHandler = (e) => {
-    //e.preventDefault();
+  const submitHandler = () => {
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {

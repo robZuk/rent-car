@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import ModalCalendar from "../components/ModalCalendar";
-import Modal from "../components/Modal";
 import { listCarDetails } from "../actions/carActions";
 
 function CarScreen() {
-  const [modalShow, setModalShow] = useState(false);
-  // const [modalShow, setModalShow] = useState(false);
-
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -34,8 +29,7 @@ function CarScreen() {
       ) : error ? (
         <Message variant="alert-danger">{error}</Message>
       ) : (
-        <>
-          {/* <Meta title={car.name} /> */}
+        <div className="container">
           <div className="row">
             <div className="col-md-7">
               <div
@@ -124,23 +118,15 @@ function CarScreen() {
                     className="btn btn-cardialred mt-4"
                     data-bs-toggle="modal"
                     data-bs-target="#modalCalendar"
-
-                    // onClick={() => setModalShow(true)}
-                    // style={{ width: "100px" }}
                   >
                     Reserve
                   </button>
                 </div>
                 <ModalCalendar id={params.id} />
-                {/* <ModalCalendar
-                  id={params.id}
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                /> */}
               </ul>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

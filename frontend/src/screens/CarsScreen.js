@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+import Car from "../components/Car";
 import Loader from "../components/Loader";
 import { listCars } from "../actions/carActions";
-import Car from "../components/Car";
 
 function CarsScreen() {
   const { keyword } = useParams();

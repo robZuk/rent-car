@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
@@ -22,8 +21,6 @@ function ProfileScreem() {
   const { loading, error, user } = userDetails;
 
   const orderDetails = useSelector((state) => state.orderDetails);
-  // const userLogin = useSelector((state) => state.userLogin);
-  // const { userInfo } = userLogin;
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
@@ -37,11 +34,7 @@ function ProfileScreem() {
     if (order && order.isPaid) {
       dispatch(listMyOrders());
     }
-    //success && toast.success("Profile Updated");
-    //error && toast.error(error);
-    // if (!userInfo) {
-    //   navigate("/login");
-    // } else {
+
     if (!user || !user.name || success) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
       dispatch(getUserDetails("profile"));

@@ -5,13 +5,8 @@ import Order from "../models/orderModel.js";
 // @route   POST /api/orders
 // @access  Private
 const addOrderItems = asyncHandler(async (req, res) => {
-  const {
-    orderItems,
-    paymentOnAccount,
-    paymentOnAccountMethod,
-    //carsPrice,
-    totalPrice,
-  } = req.body;
+  const { orderItems, paymentOnAccount, paymentOnAccountMethod, totalPrice } =
+    req.body;
 
   if (orderItems && orderItems.length === 0) {
     res.status(400);
@@ -23,7 +18,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
       user: req.user._id,
       paymentOnAccount,
       paymentOnAccountMethod,
-      //carsPrice,
       totalPrice,
     });
 
