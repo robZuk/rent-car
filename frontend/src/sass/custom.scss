@@ -1,0 +1,36 @@
+// import the functions & variables
+@import "../../node_modules/bootstrap/scss/_functions";
+@import "../../node_modules/bootstrap/scss/_variables";
+
+$cardialred: #c41e3a;
+$lightgray: #e9ecef;
+$salmon: #fa5f55;
+$apricot: #fbceb1;
+$pink: #f89880;
+$red: #e74c3c;
+
+// custom theme colours
+$custom-theme-colors: (
+  "cardialred": $cardialred,
+  "lightgray": $lightgray,
+  "salmon": $salmon,
+  "apricot": $apricot,
+  "pink": $pink,
+  "red": $red,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+$utilities-colors: map-merge($theme-colors, $utilities-colors);
+
+$utilities-text-colors: map-loop(
+  $utilities-colors,
+  rgba-css-var,
+  "$key",
+  "text"
+);
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+// import bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
