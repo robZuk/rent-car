@@ -1,5 +1,5 @@
 {
-  "name": "rentacar",
+  "name": "rent-car2022",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -13,16 +13,8 @@
     "data:destroy": "node backend/seeder -d",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robZuk/rent-a-car.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/robZuk/rent-a-car/issues"
-  },
-  "homepage": "https://github.com/robZuk/rent-a-car#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
