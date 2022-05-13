@@ -7,17 +7,12 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
-import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
-      <ToastContainer
-        style={{ top: "15vh", padding: "0 15px" }}
-        position="top-center"
-      />
     </BrowserRouter>
   </Provider>
 );
