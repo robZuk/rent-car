@@ -148,7 +148,6 @@ function CarEditScreen() {
       <div
         className="container"
         style={{
-          height: "40vh",
           marginTop: "5vh",
         }}
       >

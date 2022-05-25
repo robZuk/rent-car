@@ -128,7 +128,7 @@ const ContactScreen = () => {
                   <span
                     ref={tooltipNameRef}
                     data-bs-placement="bottom"
-                    title="Pretty self explanatory really..."
+                    title="Enter name"
                   >
                     <i className="bi bi-question-circle text-secondary"></i>
                   </span>
