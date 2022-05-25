@@ -1,15 +1,20 @@
 # car-rental  
 
-### [https://rental-cars24.herokuapp.com/](https://rental-cars24.herokuapp.com/)
+### [https://blooming-gorge-77011.herokuapp.com/](https://blooming-gorge-77011.herokuapp.com/)
 
 ![SCREEN](https://user-images.githubusercontent.com/40764780/117391950-56b53680-aef1-11eb-9b0e-92affe5f7938.png)
 
 ### Technologies
-- React
+- React 18
+- React Router 6
+- React Redux
+- React Hook Form 7
+- Bootstrap 5
+- styled components 5
 - MongoDB
-- Express
-- Bootstrap 4
-- styled components
+- Express 4
+
+
 
 ### Features
 
@@ -19,7 +24,7 @@
 - Admin product management
 - Admin user management
 - Admin Order details page
-- PayPal / credit card integration
+- PayPal integration
 
 ### Env Variables
 Create a .env file in then root and add the following
